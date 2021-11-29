@@ -6,16 +6,13 @@ let messageOne = document.querySelector(`#message-1`);
 let messageTwo = document.querySelector(`#message-2`);
 
 const fetchLocation = location => {
-	fetch(`http://localhost:3000/weather?address=${location}`).then(
-		response => {
-			response.json().then(data => {
-				if (data.error)
-					return (messageOne.textContent = `${data.error}`);
-				messageOne.textContent = `${data.currentLocation}`;
-				messageTwo.textContent = `its ${data.temperature} but feels like ${data.feelslike}`;
-			});
-		}
-	);
+	fetch(`/weather?address=${location}`).then(response => {
+		response.json().then(data => {
+			if (data.error) return (messageOne.textContent = `${data.error}`);
+			messageOne.textContent = `${data.currentLocation}`;
+			messageTwo.textContent = `its ${data.temperature} but feels like ${data.feelslike}`;
+		});
+	});
 };
 
 weatherForm.addEventListener("submit", e => {
