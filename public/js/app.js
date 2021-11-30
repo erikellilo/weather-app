@@ -10,7 +10,7 @@ const fetchLocation = location => {
 		response.json().then(data => {
 			if (data.error) return (messageOne.textContent = `${data.error}`);
 			messageOne.textContent = `${data.currentLocation}`;
-			messageTwo.textContent = `its ${data.temperature} but feels like ${data.feelslike}`;
+			messageTwo.textContent = `its ${data.temperature} ° but feels like ${data.feelslike} ° and humidity are ${data.humidity}`;
 		});
 	});
 };

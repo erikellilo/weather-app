@@ -15,12 +15,14 @@ const foreceast = (latitude, longitude, callback) => {
 			if (response.error)
 				return callback("unable to find lication", undefined);
 			const { current } = response.body;
-			const { temperature, feelslike, weather_descriptions } = current;
+			const { temperature, feelslike, weather_descriptions, humidity } =
+				current;
 
 			callback(undefined, {
 				temperature,
 				feelslike,
 				weather_descriptions,
+				humidity,
 			});
 		}
 	);
